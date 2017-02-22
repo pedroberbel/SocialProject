@@ -22,9 +22,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func Register_click(_ sender: Any) {
-        if userTxt.text!.isEmpty {
+// if theres a empty field, it placeholder turn in Red color.
+        if userTxt.text!.isEmpty || passTxt.text!.isEmpty || emailTxt.text!.isEmpty || firstNameTxt.text!.isEmpty || lastNameTxt.text!.isEmpty{
             //Red placeholder
             userTxt.attributedPlaceholder=NSAttributedString(string:"Usuário", attributes: [NSForegroundColorAttributeName:UIColor.red])
+            passTxt.attributedPlaceholder=NSAttributedString(string:"Senha", attributes: [NSForegroundColorAttributeName:UIColor.red])
+            emailTxt.attributedPlaceholder=NSAttributedString(string:"E-mail", attributes:[NSForegroundColorAttributeName:UIColor.red])
+            firstNameTxt.attributedPlaceholder=NSAttributedString(string:"Primeiro Nome", attributes: [NSForegroundColorAttributeName:UIColor.red])
+            lastNameTxt.attributedPlaceholder=NSAttributedString(string:"Último Nome", attributes:[NSForegroundColorAttributeName:UIColor.red])
+            
+        } else {
+            // send to DB
         }
     
     }
