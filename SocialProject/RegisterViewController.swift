@@ -31,19 +31,7 @@ class RegisterViewController: UIViewController {
         closeAlert.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
-    override func viewWillAppear(_ animated: Bool) {
-        if userTxt.isEnabled {
-            alertLabel.isHidden = true
-            closeAlert.isHidden = true
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if userTxt.isEditing {
-            alertLabel.isHidden = true
-            closeAlert.isHidden = true
-        }
-    }
+
     @IBAction func closeAlert(_ sender: Any) {
         alertLabel.isHidden = true
         closeAlert.isHidden = true
@@ -51,7 +39,6 @@ class RegisterViewController: UIViewController {
     }
     
     var URLRegisterUser = "http://localhost/travelapp/register.php"
-    var URLRegisterUser2 = String()
     
     @IBAction func Register_click(_ sender: Any) {
 
@@ -77,8 +64,7 @@ class RegisterViewController: UIViewController {
         self.firstName = firstNameTxt.text!
         self.lastName = lastNameTxt.text!
         
-        self.URLRegisterUser2 = "http://localhost/travelapp/register.php?username=\(self.username)&password=\(self.password)&email=\(self.email)&fullname=\(self.firstName)%20\(self.lastName)"
-        
+
 
             let url = NSURL(string: self.URLRegisterUser)!
             //request to this file

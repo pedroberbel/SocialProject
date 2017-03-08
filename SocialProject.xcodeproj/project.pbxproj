@@ -17,6 +17,7 @@
 		CDC82C001E6DF7E100AD8BAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC82BFF1E6DF7E100AD8BAA /* HomeViewController.swift */; };
 		CDC82C021E6DF7FA00AD8BAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC82C011E6DF7FA00AD8BAA /* SettingsViewController.swift */; };
 		CDC82C041E6DFE4400AD8BAA /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC82C031E6DFE4400AD8BAA /* RecoverPasswordViewController.swift */; };
+		CDC82C061E6F339E00AD8BAA /* Utilidades.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC82C051E6F339E00AD8BAA /* Utilidades.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CDC82BFF1E6DF7E100AD8BAA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CDC82C011E6DF7FA00AD8BAA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CDC82C031E6DFE4400AD8BAA /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
+		CDC82C051E6F339E00AD8BAA /* Utilidades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilidades.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				CDC82BFF1E6DF7E100AD8BAA /* HomeViewController.swift */,
 				CDC82C011E6DF7FA00AD8BAA /* SettingsViewController.swift */,
 				CDC82C031E6DFE4400AD8BAA /* RecoverPasswordViewController.swift */,
+				CDC82C051E6F339E00AD8BAA /* Utilidades.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				CDC82C041E6DFE4400AD8BAA /* RecoverPasswordViewController.swift in Sources */,
 				CDC82BFE1E6DF79400AD8BAA /* LoginViewController.swift in Sources */,
 				CD06F8681E5D2CAF0044CEEF /* RegisterViewController.swift in Sources */,
+				CDC82C061E6F339E00AD8BAA /* Utilidades.swift in Sources */,
 				CD06F8661E5D2CAF0044CEEF /* AppDelegate.swift in Sources */,
 				CDC82C021E6DF7FA00AD8BAA /* SettingsViewController.swift in Sources */,
 				CDC82C001E6DF7E100AD8BAA /* HomeViewController.swift in Sources */,
