@@ -25,22 +25,27 @@ class LoginViewController: UIViewController {
     var activeUser = String()
     
     
-    let userDefaults = UserDefaults.standard
-    
+    let userDefaults = Utilidades().getAuthenticatedUser()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            self.activeUser = Utilidades().getAuthenticatedUser()
-            print(self.activeUser)
-        if ((!self.activeUser.isEmpty) && (self.activeUser != "400")){
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let authenticatedViewController = storyBoard.instantiateViewController(withIdentifier: "comTab") as! EnterViewController
-            //pass username info to tabbarController
-            self.present(authenticatedViewController, animated: true, completion: nil)
+        self.activeUser = userDefaults
+      
+        if activeUser.isEmpty {
+            print("Ninguem ativo: \(self.activeUser)")
         } else {
-            self.activeUser = Utilidades().getAuthenticatedUser()
+            print("Usuário Ativo: \(self.activeUser)")
+            OperationQueue.main.addOperation {
+        
+            
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let authenticatedViewController = storyBoard.instantiateViewController(withIdentifier: "comTab") as! EnterViewController
+                //pass username info to tabbarController
+                self.present(authenticatedViewController, animated: true, completion: nil)
+            }
         }
+
         
        self.alertLabel.isHidden = true
         self.closeAlert.isHidden = true
@@ -156,16 +161,16 @@ class LoginViewController: UIViewController {
 //        }
 //    }
     
-    func getUserDefault() -> String {
-//       var activeUser = self.userDefaults.object(forKey: "authenticatedUser")
-        print("enviando User: \(self.userDefaults.object(forKey: "authenticatedUser"))")
-        let active = self.userDefaults.object(forKey: "authenticatedUser") as? String
-        if active == nil {
-            return "400"
-        } else {
-        return self.userDefaults.object(forKey: "authenticatedUser") as! String
-        }
-    }
+//    func getUserDefault() -> String {
+////       var activeUser = self.userDefaults.object(forKey: "authenticatedUser")
+//        print("enviando User: \(self.userDefaults.object(forKey: "authenticatedUser"))")
+//        let active = self.userDefaults.object(forKey: "authenticatedUser") as? String
+//        if active == nil {
+//            return "400"
+//        } else {
+//        return self.userDefaults.object(forKey: "authenticatedUser") as! String
+//        }
+//    }
     
     
     

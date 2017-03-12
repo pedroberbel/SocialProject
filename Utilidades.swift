@@ -37,8 +37,9 @@ class Utilidades {
     }
 // get who is connected to the application, using NSUserDefaults
     public func getAuthenticatedUser() -> String {
-
+   
         return self.authenticatedUserDefalt.object(forKey: "authenticatedUser") as! String
+    
     }
 
     

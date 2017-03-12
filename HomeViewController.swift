@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
         
         fastPageControll.numberOfPages = views.count
         for index in 0..<views.count {
-                print("index: \(index)")
+                //print("index: \(index)")
                 frame.origin.x = scrollView.frame.size.width * CGFloat(index)
                 frame.size = scrollView.frame.size
                 let view = UIView(frame: frame)
@@ -83,7 +83,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func logOutButton(_ sender: Any) {
         self.currentUser = ""
-        Utilidades().setAuthenticatedUser(username: "")
+        Utilidades().setAuthenticatedUser(username: self.currentUser)
         
         
     }

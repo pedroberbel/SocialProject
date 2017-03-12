@@ -21,9 +21,10 @@ class EnterViewController: UITabBarController {
 
         //if the app is closed, it should return the user who is connected to this session.
         if information.isEmpty{
-        let oi = HomeViewController()
-        oi.currentUser = "400" // vai pegar la na session do PHP, quem está conectado.
-        information = oi.currentUser
+        print("EnterView information: \(self.information)")
+//        let oi = HomeViewController()
+//        oi.currentUser = "400" // vai pegar la na session do PHP, quem está conectado.
+//        information = oi.currentUser
         } else {
         print("Tela ENTER: \(self.information)")
         }
