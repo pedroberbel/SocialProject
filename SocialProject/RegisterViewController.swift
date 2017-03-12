@@ -81,7 +81,6 @@ class RegisterViewController: UIViewController {
             request.httpBody = body.data(using: String.Encoding.utf8)
             
             
-//Funcionou!
             let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
             
                 if error != nil {
@@ -91,53 +90,18 @@ class RegisterViewController: UIViewController {
                 print("response: \(response)")
                 let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 print("responseString:\(responseString)")
+                
+                OperationQueue.main.addOperation {
+                    
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let authenticatedViewController = storyBoard.instantiateViewController(withIdentifier: "comTab") as! EnterViewController
+                    authenticatedViewController.information = self.username
+                    self.present(authenticatedViewController, animated: true, completion: nil)
+                    
+                }
             }
             task.resume()
 
-            
-            
-/*            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main){ (response, data, error) in
-               
-                print("response:")
-                print(response)
-                print("body")
-                print(body.data)
-            if let HTTPResponse = response as? HTTPURLResponse {
-                let statusCode = HTTPResponse.statusCode
-                if statusCode == 200 {
-                    
-  
-                   }
-                }
-                
-                }//Connection: funcionou +- */
-            
-/*            URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data ,response ,error) in
-            print("data:")
-                print(data)
-                if error == nil {
-
-                    
-                //    DispatchQueue.main.async{
-                    
-                        OperationQueue.main.addOperation {
-
-                            
-                        do {
-                            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                            
-                            print("Data|json:")
-                            print(data)
-                            print(json)
-                            guard let parseJSON = json else {
-                                print ("Error While Parsing")
-                                return
-                            }
-                            let id = parseJSON["id"]
-                            }
-                    }
-                }
-                }).resume()   */
         }
 }
 }//class

@@ -8,13 +8,70 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var testeLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var fastPageControll: UIPageControl!
+    @IBOutlet weak var fastDetailView: UIView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    var currentUser = String()
+   
+//    let greenBlue 
+    
+    var views :[UIColor] = [Colors().GreenBlue(), Colors().NiceRed(), Colors().YellowCard()]
+    
+    var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+    
+        self.fastPageControll.backgroundColor = Colors().GreenBlue()
+        self.logOutButton.backgroundColor = Colors().NiceRed()
+        
+        if let myInfo = self.tabBarController as? EnterViewController {
+        self.currentUser = myInfo.information
+        self.usernameLabel.text = self.currentUser
+        print("Home, Usuario: \(self.currentUser)")
+        }
+        
+        fastPageControll.numberOfPages = views.count
+        for index in 0..<views.count {
+                print("index: \(index)")
+                frame.origin.x = scrollView.frame.size.width * CGFloat(index)
+                frame.size = scrollView.frame.size
+                let view = UIView(frame: frame)
+                view.backgroundColor = views[index]
+//                view.layer.borderColor = UIColor.white.cgColor
+//                view.layer.borderWidth = 7
+                //create a padding on both sides of the view.
+                view.bounds = view.frame.insetBy(dx: 7.0, dy: 0.0)
+                view.layer.cornerRadius = 5
+                self.scrollView.addSubview(view)
+            
+            
+        }
+            
+            scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(views.count), height: scrollView.frame.size.height)
+            
+            scrollView.delegate = self
     }
+    
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        fastPageControll.currentPage = Int(pageNumber)
+        fastPageControll.currentPageIndicatorTintColor = views[fastPageControll.currentPage]
+    }
+        
+        
+        
+        
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -22,14 +79,40 @@ class HomeViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+ 
+    
+    @IBAction func logOutButton(_ sender: Any) {
+        self.currentUser = ""
+        Utilidades().setAuthenticatedUser(username: "")
+        
+        
     }
-    */
+    
+    @IBAction func vaiVai(_ sender: Any) {
+    
+    }
 
+
+
+    
+    
+    
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

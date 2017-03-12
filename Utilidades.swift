@@ -13,26 +13,34 @@ import UIKit
 class Utilidades {
     
     
-//Alerts (OutletName ,message, size_x, size_y)
-    public func yellowAlert() {
-        
-        
-        
+    let authenticatedUserDefalt = UserDefaults.standard
+
+    //Alerts
+    public func yellowAlert(message: String) {
     }
     
     public func greenAlert() {
-        
-        
-        
     }
+    
     public func redAlert() {
-        
-        
-        
     }
+
     
     
-    
+    //Authentication
+
+// save who is connected to the application, using NSUserDefaults
+    public func setAuthenticatedUser(username: String){
+        self.authenticatedUserDefalt.set(username, forKey: "authenticatedUser")
+        self.authenticatedUserDefalt.synchronize()
+        print("definiu usuario: \(username)")
+    }
+// get who is connected to the application, using NSUserDefaults
+    public func getAuthenticatedUser() -> String {
+
+        return self.authenticatedUserDefalt.object(forKey: "authenticatedUser") as! String
+    }
+
     
     
     

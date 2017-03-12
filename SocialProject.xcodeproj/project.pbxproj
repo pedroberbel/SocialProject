@@ -18,6 +18,13 @@
 		CDC82C021E6DF7FA00AD8BAA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC82C011E6DF7FA00AD8BAA /* SettingsViewController.swift */; };
 		CDC82C041E6DFE4400AD8BAA /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC82C031E6DFE4400AD8BAA /* RecoverPasswordViewController.swift */; };
 		CDC82C061E6F339E00AD8BAA /* Utilidades.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC82C051E6F339E00AD8BAA /* Utilidades.swift */; };
+		CDC82C0A1E70F2EB00AD8BAA /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC82C091E70F2EB00AD8BAA /* EnterViewController.swift */; };
+		CDF263D81E71CBEA0054FFED /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263D71E71CBEA0054FFED /* SettingsTableViewCell.swift */; };
+		CDF263DB1E71D3C60054FFED /* EditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263DA1E71D3C60054FFED /* EditTableViewCell.swift */; };
+		CDF263DD1E71D5C70054FFED /* logoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263DC1E71D5C70054FFED /* logoutTableViewCell.swift */; };
+		CDF263DF1E71D5ED0054FFED /* changePassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263DE1E71D5ED0054FFED /* changePassTableViewCell.swift */; };
+		CDF263E21E71EC820054FFED /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263E11E71EC820054FFED /* HomePageController.swift */; };
+		CDF263E41E724AA50054FFED /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263E31E724AA50054FFED /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +41,13 @@
 		CDC82C011E6DF7FA00AD8BAA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CDC82C031E6DFE4400AD8BAA /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		CDC82C051E6F339E00AD8BAA /* Utilidades.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilidades.swift; sourceTree = "<group>"; };
+		CDC82C091E70F2EB00AD8BAA /* EnterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
+		CDF263D71E71CBEA0054FFED /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		CDF263DA1E71D3C60054FFED /* EditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTableViewCell.swift; sourceTree = "<group>"; };
+		CDF263DC1E71D5C70054FFED /* logoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logoutTableViewCell.swift; sourceTree = "<group>"; };
+		CDF263DE1E71D5ED0054FFED /* changePassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changePassTableViewCell.swift; sourceTree = "<group>"; };
+		CDF263E11E71EC820054FFED /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
+		CDF263E31E724AA50054FFED /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +64,8 @@
 		CD06F8591E5D2CAF0044CEEF = {
 			isa = PBXGroup;
 			children = (
+				CDF263E01E71E9060054FFED /* Authentication */,
+				CDF263D91E71CD6C0054FFED /* Settings */,
 				CDC82BFC1E6DF77200AD8BAA /* ViewController */,
 				CD06F8641E5D2CAF0044CEEF /* SocialProject */,
 				CD06F8631E5D2CAF0044CEEF /* Products */,
@@ -88,14 +104,35 @@
 		CDC82BFC1E6DF77200AD8BAA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CD06F8671E5D2CAF0044CEEF /* RegisterViewController.swift */,
-				CDC82BFD1E6DF79400AD8BAA /* LoginViewController.swift */,
+				CDC82C091E70F2EB00AD8BAA /* EnterViewController.swift */,
 				CDC82BFF1E6DF7E100AD8BAA /* HomeViewController.swift */,
-				CDC82C011E6DF7FA00AD8BAA /* SettingsViewController.swift */,
-				CDC82C031E6DFE4400AD8BAA /* RecoverPasswordViewController.swift */,
+				CDF263E11E71EC820054FFED /* HomePageController.swift */,
 				CDC82C051E6F339E00AD8BAA /* Utilidades.swift */,
+				CDF263E31E724AA50054FFED /* Colors.swift */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		CDF263D91E71CD6C0054FFED /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CDC82C011E6DF7FA00AD8BAA /* SettingsViewController.swift */,
+				CDF263D71E71CBEA0054FFED /* SettingsTableViewCell.swift */,
+				CDF263DA1E71D3C60054FFED /* EditTableViewCell.swift */,
+				CDF263DE1E71D5ED0054FFED /* changePassTableViewCell.swift */,
+				CDF263DC1E71D5C70054FFED /* logoutTableViewCell.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		CDF263E01E71E9060054FFED /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CD06F8671E5D2CAF0044CEEF /* RegisterViewController.swift */,
+				CDC82BFD1E6DF79400AD8BAA /* LoginViewController.swift */,
+				CDC82C031E6DFE4400AD8BAA /* RecoverPasswordViewController.swift */,
+			);
+			name = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,12 +209,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC82C041E6DFE4400AD8BAA /* RecoverPasswordViewController.swift in Sources */,
+				CDC82C0A1E70F2EB00AD8BAA /* EnterViewController.swift in Sources */,
+				CDF263D81E71CBEA0054FFED /* SettingsTableViewCell.swift in Sources */,
+				CDF263E41E724AA50054FFED /* Colors.swift in Sources */,
 				CDC82BFE1E6DF79400AD8BAA /* LoginViewController.swift in Sources */,
+				CDF263DD1E71D5C70054FFED /* logoutTableViewCell.swift in Sources */,
 				CD06F8681E5D2CAF0044CEEF /* RegisterViewController.swift in Sources */,
 				CDC82C061E6F339E00AD8BAA /* Utilidades.swift in Sources */,
 				CD06F8661E5D2CAF0044CEEF /* AppDelegate.swift in Sources */,
+				CDF263E21E71EC820054FFED /* HomePageController.swift in Sources */,
+				CDF263DF1E71D5ED0054FFED /* changePassTableViewCell.swift in Sources */,
 				CDC82C021E6DF7FA00AD8BAA /* SettingsViewController.swift in Sources */,
 				CDC82C001E6DF7E100AD8BAA /* HomeViewController.swift in Sources */,
+				CDF263DB1E71D3C60054FFED /* EditTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
