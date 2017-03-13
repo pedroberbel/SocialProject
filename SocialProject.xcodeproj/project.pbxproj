@@ -25,6 +25,7 @@
 		CDF263DF1E71D5ED0054FFED /* changePassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263DE1E71D5ED0054FFED /* changePassTableViewCell.swift */; };
 		CDF263E21E71EC820054FFED /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263E11E71EC820054FFED /* HomePageController.swift */; };
 		CDF263E41E724AA50054FFED /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263E31E724AA50054FFED /* Colors.swift */; };
+		CDF263E61E77067B0054FFED /* ChangePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF263E51E77067B0054FFED /* ChangePassViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		CDF263DE1E71D5ED0054FFED /* changePassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changePassTableViewCell.swift; sourceTree = "<group>"; };
 		CDF263E11E71EC820054FFED /* HomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
 		CDF263E31E724AA50054FFED /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		CDF263E51E77067B0054FFED /* ChangePassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePassViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				CDF263DA1E71D3C60054FFED /* EditTableViewCell.swift */,
 				CDF263DE1E71D5ED0054FFED /* changePassTableViewCell.swift */,
 				CDF263DC1E71D5C70054FFED /* logoutTableViewCell.swift */,
+				CDF263E51E77067B0054FFED /* ChangePassViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF263E61E77067B0054FFED /* ChangePassViewController.swift in Sources */,
 				CDC82C041E6DFE4400AD8BAA /* RecoverPasswordViewController.swift in Sources */,
 				CDC82C0A1E70F2EB00AD8BAA /* EnterViewController.swift in Sources */,
 				CDF263D81E71CBEA0054FFED /* SettingsTableViewCell.swift in Sources */,
