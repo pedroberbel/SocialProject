@@ -11,23 +11,18 @@ import UIKit
 class EnterViewController: UITabBarController {
 
     
-    var information = Utilidades().getAuthenticatedUser()
+    var information = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 
-        //self.information = Utilidades().getAuthenticatedUser()
-
-        //if the app is closed, it should return the user who is connected to this session.
-        if information.isEmpty{
-        print("EnterView information: \(self.information)")
-//        let oi = HomeViewController()
-//        oi.currentUser = "400" // vai pegar la na session do PHP, quem está conectado.
-//        information = oi.currentUser
-        } else {
-        print("Tela ENTER: \(self.information)")
-        }
+//        if information.isEmpty{
+//        print("EnterView information: \(self.information)")
+//
+//        } else {
+//        print("Tela ENTER: \(self.information)")
+//        }
         // Do any additional setup after loading the view.
     }
 

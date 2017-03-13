@@ -22,36 +22,32 @@ class LoginViewController: UIViewController {
     var verifyResponse = [String: Any]()
     var responseString = String()
     var login = String()
-    var activeUser = String()
+    var activeUser = UserDefaults.standard //key: loginUser
+    //In this app, activeUser and currentUser will handle with who is logged in
     
-    
-    let userDefaults = Utilidades().getAuthenticatedUser()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.activeUser = userDefaults
-      
-        if activeUser.isEmpty {
-            print("Ninguem ativo: \(self.activeUser)")
+    
+        //Checking if there is an user logged in the app
+        if self.activeUser.object(forKey: "loginUser") == nil {
+            print("Não tem usuário logado")
         } else {
-            print("Usuário Ativo: \(self.activeUser)")
-            OperationQueue.main.addOperation {
-        
+            print("tem usuário logado")
             
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let authenticatedViewController = storyBoard.instantiateViewController(withIdentifier: "comTab") as! EnterViewController
-                //pass username info to tabbarController
-                self.present(authenticatedViewController, animated: true, completion: nil)
-            }
+        OperationQueue.main.addOperation {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let authenticatedViewController = storyBoard.instantiateViewController(withIdentifier: "comTab") as! EnterViewController
+            //pass username info to tabbarController
+            self.present(authenticatedViewController, animated: false, completion: nil)
+        }
         }
 
-        
-       self.alertLabel.isHidden = true
+
+
+        self.alertLabel.isHidden = true
         self.closeAlert.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.isNavigationBarHidden = true
-        // Do any additional setup after loading the view.
     }
     
     
@@ -129,10 +125,10 @@ class LoginViewController: UIViewController {
                         let authenticatedViewController = storyBoard.instantiateViewController(withIdentifier: "comTab") as! EnterViewController
                             //pass username info to tabbarController
                             authenticatedViewController.information = self.username
-                            self.activeUser = self.username
                             self.present(authenticatedViewController, animated: true, completion: nil)
  //USER DEFAULTS -
-                            Utilidades().setAuthenticatedUser(username: self.username)
+                            Utilidades().setAuthenticatedUser(username: self.username, true)
+                            self.activeUser.set(self.username, forKey: "loginUser")
 //                            self.userDefaults.set(self.username, forKey: "authenticatedUser")
                             
                         }
@@ -152,27 +148,6 @@ class LoginViewController: UIViewController {
             task.resume()
         }//if the fields are not empty
         }// end button
-    
-//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "validLogin"{
-//            let HomeVC = segue.destination as! HomeViewController
-//            let verifiedUser = self.username
-//            HomeVC.currentUser = verifiedUser
-//        }
-//    }
-    
-//    func getUserDefault() -> String {
-////       var activeUser = self.userDefaults.object(forKey: "authenticatedUser")
-//        print("enviando User: \(self.userDefaults.object(forKey: "authenticatedUser"))")
-//        let active = self.userDefaults.object(forKey: "authenticatedUser") as? String
-//        if active == nil {
-//            return "400"
-//        } else {
-//        return self.userDefaults.object(forKey: "authenticatedUser") as! String
-//        }
-//    }
-    
-    
     
         }//end class
 

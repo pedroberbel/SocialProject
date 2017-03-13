@@ -83,7 +83,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func logOutButton(_ sender: Any) {
         self.currentUser = ""
-        Utilidades().setAuthenticatedUser(username: self.currentUser)
+        Utilidades().setAuthenticatedUser(username: self.currentUser, false)
         
         
     }

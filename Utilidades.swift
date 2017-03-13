@@ -12,9 +12,13 @@ import UIKit
 
 class Utilidades {
     
+    //Userdefault variables information
+    var authenticatedUserDefalt = UserDefaults.standard
+    let authentication2 = UserDefaults.standard
     
-    let authenticatedUserDefalt = UserDefaults.standard
-
+    
+    
+    
     //Alerts
     public func yellowAlert(message: String) {
     }
@@ -30,18 +34,43 @@ class Utilidades {
     //Authentication
 
 // save who is connected to the application, using NSUserDefaults
-    public func setAuthenticatedUser(username: String){
+    public func setAuthenticatedUser(username: String,_ setAuthentication: Bool){
         self.authenticatedUserDefalt.set(username, forKey: "authenticatedUser")
         self.authenticatedUserDefalt.synchronize()
         print("definiu usuario: \(username)")
+        self.authentication2.set(setAuthentication, forKey: "authenticated")
     }
 // get who is connected to the application, using NSUserDefaults
     public func getAuthenticatedUser() -> String {
-   
+        
         return self.authenticatedUserDefalt.object(forKey: "authenticatedUser") as! String
-    
     }
 
+    
+    public func authentication(username: String, login: Bool) -> Bool{
+        if username.isEmpty { //no userName authenticated
+        print("Não há ninguém autenticado")
+        return false
+        } else { //there is username authenticated
+        print("Existe Alguém autenticado")
+        self.getAuthenticatedUser()
+        return true
+        }
+    }
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

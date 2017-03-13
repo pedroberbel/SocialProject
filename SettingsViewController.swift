@@ -19,12 +19,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
-       let getter = Utilidades()
-        self.currentUser = getter.getAuthenticatedUser()
+//       let getter = Utilidades()
+        self.currentUser = Utilidades().getAuthenticatedUser()
         self.view.backgroundColor = Colors().YellowCard()
         self.tableView.sectionIndexColor = Colors().YellowCard()
         self.tabBarController?.tabBar.isTranslucent = false
-        
+        print("Usuário confingurações: \(self.currentUser)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,18 +73,24 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "logoutCell") as! logoutTableViewCell
             
         cell.isUserInteractionEnabled = true
-       
+            //sempre que abre a tela, ele define username: ""
+//            Utilidades().setAuthenticatedUser(username: "")
         return cell
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "logOut"{
-            let logOut = segue.destination as! LoginViewController
-            let myIndexPath = self.tableView.indexPathForSelectedRow!
-            let row = 3
-//            selectedUser = self.userURL[row]
-//            searchUserVC.userLink = selectedUser
+            print("Clicou em Sair")
+            
+            OperationQueue.main.addOperation {
+//            let nextView = LoginViewController()
+                let nextView = EnterViewController()
+            self.currentUser = ""
+                nextView.information = self.currentUser
+//            nextView.activeUser = self.currentUser
+            Utilidades().setAuthenticatedUser(username: self.currentUser, false)
+            }
         }
     }
  
