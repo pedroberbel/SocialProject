@@ -23,23 +23,26 @@ class LoginViewController: UIViewController {
     var responseString = String()
     var login = String()
     var activeUser = UserDefaults.standard //key: loginUser
-    //In this app, activeUser and currentUser will handle with who is logged in
+    //In this app, activeUser and currentUser will handle together with who is logged in
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         //Checking if there is an user logged in the app
-        if self.activeUser.object(forKey: "loginUser") == nil {
+        if self.activeUser.object(forKey: "loginUser") == nil{
             print("Não tem usuário logado")
         } else {
-            print("tem usuário logado")
-            
+            print("tem usuário logado: \(self.activeUser.object(forKey: "loginUser") as! String)")
+        //when the user log out, activeUser receive "400" as value, it means there is no authentication, if activeUser is different from "400" so it will get the HomeView
+        let currentUser = self.activeUser.object(forKey: "loginUser") as! String
+        if currentUser != "400"{
         OperationQueue.main.addOperation {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let authenticatedViewController = storyBoard.instantiateViewController(withIdentifier: "comTab") as! EnterViewController
             //pass username info to tabbarController
             self.present(authenticatedViewController, animated: false, completion: nil)
         }
+            }
         }
 
 
@@ -124,12 +127,10 @@ class LoginViewController: UIViewController {
                         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                         let authenticatedViewController = storyBoard.instantiateViewController(withIdentifier: "comTab") as! EnterViewController
                             //pass username info to tabbarController
-                            authenticatedViewController.information = self.username
                             self.present(authenticatedViewController, animated: true, completion: nil)
  //USER DEFAULTS -
                             Utilidades().setAuthenticatedUser(username: self.username, true)
                             self.activeUser.set(self.username, forKey: "loginUser")
-//                            self.userDefaults.set(self.username, forKey: "authenticatedUser")
                             
                         }
                         

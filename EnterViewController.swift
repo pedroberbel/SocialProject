@@ -11,19 +11,11 @@ import UIKit
 class EnterViewController: UITabBarController {
 
     
-    var information = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 
-//        if information.isEmpty{
-//        print("EnterView information: \(self.information)")
-//
-//        } else {
-//        print("Tela ENTER: \(self.information)")
-//        }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

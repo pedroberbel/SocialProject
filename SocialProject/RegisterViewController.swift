@@ -18,12 +18,14 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var firstNameTxt: UITextField!
     @IBOutlet weak var lastNameTxt: UITextField!
     
+    //register's variables
     var username = String()
     var password = String()
     var email = String()
     var firstName = String()
     var lastName = String()
     
+    var activeUser = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,10 +94,10 @@ class RegisterViewController: UIViewController {
                 print("responseString:\(responseString)")
                 
                 OperationQueue.main.addOperation {
+                    self.activeUser.set(self.username, forKey: "loginUser")
                     
                     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let authenticatedViewController = storyBoard.instantiateViewController(withIdentifier: "comTab") as! EnterViewController
-                    authenticatedViewController.information = self.username
                     self.present(authenticatedViewController, animated: true, completion: nil)
                     
                 }

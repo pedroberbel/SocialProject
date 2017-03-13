@@ -15,9 +15,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var fastPageControll: UIPageControl!
     @IBOutlet weak var fastDetailView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var logOutButton: UIButton!
-    
-    var currentUser = String()
+
+    var activeUser = UserDefaults.standard //key: loginUser
+
+//    var currentUser = String()
    
 //    let greenBlue 
     
@@ -27,16 +28,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
+        print("tela de dentro, activeUser: \(self.activeUser.object(forKey: "loginUser"))")
+        let currentUser = self.activeUser.object(forKey: "loginUser") as! String
+
         self.fastPageControll.backgroundColor = Colors().GreenBlue()
-        self.logOutButton.backgroundColor = Colors().NiceRed()
         
-        if let myInfo = self.tabBarController as? EnterViewController {
-        self.currentUser = myInfo.information
-        self.usernameLabel.text = self.currentUser
-        print("Home, Usuario: \(self.currentUser)")
-        }
+        self.usernameLabel.text = currentUser
+        print("Home, Usuario: \(currentUser)")
         
         fastPageControll.numberOfPages = views.count
         for index in 0..<views.count {
@@ -80,17 +78,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate {
     
 
  
-    
-    @IBAction func logOutButton(_ sender: Any) {
-        self.currentUser = ""
-        Utilidades().setAuthenticatedUser(username: self.currentUser, false)
-        
-        
-    }
-    
-    @IBAction func vaiVai(_ sender: Any) {
-    
-    }
 
 
 

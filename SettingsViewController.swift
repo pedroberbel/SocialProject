@@ -11,15 +11,16 @@ import UIKit
 class SettingsViewController: UIViewController, UITableViewDataSource {
 
     var currentUser = String()
-
+    let activeUser = UserDefaults.standard
     
 
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
-//       let getter = Utilidades()
+
         self.currentUser = Utilidades().getAuthenticatedUser()
         self.view.backgroundColor = Colors().YellowCard()
         self.tableView.sectionIndexColor = Colors().YellowCard()
@@ -73,8 +74,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "logoutCell") as! logoutTableViewCell
             
         cell.isUserInteractionEnabled = true
-            //sempre que abre a tela, ele define username: ""
-//            Utilidades().setAuthenticatedUser(username: "")
+
         return cell
         }
     }
@@ -82,15 +82,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "logOut"{
             print("Clicou em Sair")
+            self.activeUser.set("400", forKey: "loginUser")
             
-            OperationQueue.main.addOperation {
-//            let nextView = LoginViewController()
-                let nextView = EnterViewController()
-            self.currentUser = ""
-                nextView.information = self.currentUser
-//            nextView.activeUser = self.currentUser
-            Utilidades().setAuthenticatedUser(username: self.currentUser, false)
-            }
         }
     }
  
